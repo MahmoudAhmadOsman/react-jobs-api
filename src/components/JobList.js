@@ -78,7 +78,6 @@ const JobList = ({ jobTitiles }) => {
                     Read More...
                   </a>
                 </p>
-
                 <div class="collapse" id="collapseExample">
                   <div class="card card-body">{job.description}</div>
                 </div>
