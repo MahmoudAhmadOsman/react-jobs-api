@@ -11,3 +11,15 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+
+
+/* job--lists */
+.job--lists {
+  position: relative;
+}
+
+.job--lists img {
+  width: 20px;
+  border-radius: 50px;
+}

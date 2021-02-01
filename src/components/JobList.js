@@ -2,13 +2,12 @@ import React from "react";
 
 import axios from "axios";
 import { useState, useEffect } from "react";
-import { Link } from "react-router-dom";
+// import { Link } from "react-router-dom";
 
-//const JobList = ({ jobs, setJobs, jobTitiles })
 const JobList = ({ jobTitiles }) => {
-  const [isLoading, setisLoading] = useState(true);
-
   const [jobs, setJobs] = useState([]);
+  const [isLoading, setisLoading] = useState(true);
+  const [error, setError] = useState(null);
 
   useEffect(() => {
     //const cors = "https://cors-anywhere.herokuapp.com/";
@@ -17,16 +16,24 @@ const JobList = ({ jobTitiles }) => {
     axios
       .get(baseURL)
       .then((res) => {
-        setJobs(res.data);
-        //console.log(jobs);
-        setisLoading(false);
+        if (!res.ok) {
+          throw Error("Unable to fetch the data from the server!");
+        }
+        return res.json();
       })
-      .catch((error) => {
-        //this.setState({ errorMessage: error.message });
-        console.error("There was an error!", error);
+      .then((res) => {
+        setJobs(res.data);
+        console.log(res);
+        //loading
+        setisLoading(false);
+        //Error
+        setError(null);
+      })
+      .catch((err) => {
+        setError(err.message);
       });
 
-    // empty dependency array means this effect will only run once (like componentDidMount in classes)
+    // empty dependency array
   }, []);
 
   return (
@@ -41,34 +48,35 @@ const JobList = ({ jobTitiles }) => {
               style={{ margin: "0 auto" }}
             ></div>
           )}
+
+          {error && <div className="alert alert-danger mt-5">{error}</div>}
+
           <div className="col-md-12">
             {jobs.map((job) => (
-              <div className="jobs_data">
-                <ul class="list-group mb-2" key={job.id}>
-                  <li class="list-group-item">
-                    <a href={`/jobs/${job.id}`}>{job.title}</a> | &nbsp;
-                    <span className="text-muted">{job.type}</span> | &nbsp;
-                    <span className="text-muted">
-                      {new Date(job.created_at).toLocaleDateString()}
-                    </span>
+              <div className="jobs_data" key={job.id}>
+                <ul className="list-group mb-2">
+                  <li className="list-group-item">
                     <p className="text-muted">
-                      <img
-                        src={job.company_logo}
-                        alt={job.company}
-                        style={{ width: "20" }}
-                      />
-                      | {job.company}
+                      <img src={job.company_logo} alt={job.company} /> &nbsp;
+                      <a href={`/jobs/${job.id}`}>{job.title}</a> | &nbsp;
+                      <span className="text-muted">{job.type}</span> | &nbsp;
+                      <span className="text-muted">
+                        {new Date(job.created_at).toLocaleDateString()}
+                      </span>
+                      &nbsp; | {job.company} &nbsp; | &nbsp;
+                      <span className="text-muted">{job.location}</span>
+                      <a
+                        href={job.how_to_apply}
+                        className="text-info ml-2 font-weight-bold"
+                      >
+                        Appy
+                      </a>
                     </p>
-                    | &nbsp;
-                    <span className="text-muted">{job.location}</span>
-                    <a href={job.how_to_apply} className="btn btn-info btn-sm">
-                      Appy
-                    </a>
                   </li>
                 </ul>
                 <p>
                   <a
-                    class="btn btn-primary"
+                    className="btn btn-primary"
                     data-toggle="collapse"
                     href="#collapseExample"
                     role="button"
@@ -78,8 +86,8 @@ const JobList = ({ jobTitiles }) => {
                     Read More...
                   </a>
                 </p>
-                <div class="collapse" id="collapseExample">
-                  <div class="card card-body">{job.description}</div>
+                <div className="collapse" id="collapseExample">
+                  <div className="card card-body">{job.description}</div>
                 </div>
               </div>
             ))}
