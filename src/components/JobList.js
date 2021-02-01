@@ -63,12 +63,13 @@ const JobList = ({ jobTitiles }) => {
                         {new Date(job.created_at).toLocaleDateString()}
                       </span>
                       &nbsp; | {job.company} &nbsp; | &nbsp;
-                      <span className="text-muted">{job.location}</span>
+                      <span className="text-muted">{job.location}</span> &nbsp;
+                      |
                       <a
                         href={job.how_to_apply}
                         className="text-info ml-2 font-weight-bold"
                       >
-                        Appy
+                        <strong>Apply</strong>
                       </a>
                     </p>
                   </li>
