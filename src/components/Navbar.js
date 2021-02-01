@@ -7,7 +7,6 @@ const Navbar = () => {
       <nav className="navbar navbar-expand-lg navbar-light bg-light">
         <Link className="navbar-brand" to="/">
           <img src={logo} alt="logo" />
-          Jobs API
         </Link>
         <button
           className="navbar-toggler"
