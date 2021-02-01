@@ -10,28 +10,29 @@ const JobList = ({ jobTitiles }) => {
   const [error, setError] = useState(null);
 
   useEffect(() => {
-    //const cors = "https://cors-anywhere.herokuapp.com/";
+    //Cancel muiltipe request going out at the sametime
+    const cancelToken = axios.CancelToken.source();
     const baseURL =
       "https://cors-anywhere.herokuapp.com/https://jobs.github.com/positions.json";
+
     axios
-      .get(baseURL)
-      .then((res) => {
-        if (!res.ok) {
-          throw Error("Unable to fetch the data from the server!");
-        }
-        return res.json();
+      .get(baseURL, {
+        params: { markdown: true },
       })
       .then((res) => {
         setJobs(res.data);
         console.log(res);
-        //loading
         setisLoading(false);
-        //Error
         setError(null);
       })
       .catch((err) => {
+        if (axios.isCancel(err)) return;
         setError(err.message);
       });
+
+    return () => {
+      cancelToken.cancel();
+    };
 
     // empty dependency array
   }, []);
@@ -48,8 +49,6 @@ const JobList = ({ jobTitiles }) => {
               style={{ margin: "0 auto" }}
             ></div>
           )}
-
-          {error && <div className="alert alert-danger mt-5">{error}</div>}
 
           <div className="col-md-12">
             {jobs.map((job) => (
@@ -94,6 +93,9 @@ const JobList = ({ jobTitiles }) => {
           </div>
         </div>
       </div>
+      {error && (
+        <div className="alert alert-danger text-center mt-5">{error}</div>
+      )}
     </section>
   );
 };
