@@ -66,8 +66,10 @@ const JobList = ({ jobTitiles }) => {
                       <span className="text-muted">{job.location}</span> &nbsp;
                       |
                       <a
-                        href={job.how_to_apply}
+                        href={job.url}
                         className="text-info ml-2 font-weight-bold"
+                        target="_blank"
+                        rel="noopener noreferrer"
                       >
                         <strong>Apply</strong>
                       </a>
