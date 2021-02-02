@@ -4,7 +4,7 @@ import JobList from "./JobList";
 const Home = () => {
   //   const { jobs, setJobs } = useState([]);
 
-  const jobTitiles = "Latest Jobs";
+  const jobTitiles = "Latest Jobs from Github API";
 
   return (
     <section className="home--container">

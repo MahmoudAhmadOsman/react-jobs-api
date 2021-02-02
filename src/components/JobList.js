@@ -40,7 +40,21 @@ const JobList = ({ jobTitiles }) => {
   return (
     <section className="job--lists">
       <div className="container">
-        <h1 className="text-info">{jobTitiles}</h1> <hr />
+        <h1 className="text-info">
+          {jobTitiles}
+
+          <small
+            className="text-muted float-right mt-4"
+            style={{ fontSize: "12px" }}
+          >
+            # of Available Jobs &nbsp;
+            <span className="text-primary">{jobs.length}</span> &nbsp; | Built
+            with React js library & axios | By
+            <a href="http://mahmoudosman.com/"> Mahmoud Osman</a>
+          </small>
+        </h1>{" "}
+        <hr />
+        <br />
         <div className="row">
           {isLoading && (
             <div
@@ -67,16 +81,29 @@ const JobList = ({ jobTitiles }) => {
                       |
                       <a
                         href={job.url}
-                        className="text-info ml-2 font-weight-bold"
+                        className="text-danger ml-2 font-weight-bold"
                         target="_blank"
                         rel="noopener noreferrer"
                       >
                         <strong>Apply</strong>
                       </a>
                     </p>
+                    <p>
+                      {" "}
+                      <a
+                        className="text-info font-weight-bold"
+                        data-toggle="collapse"
+                        href="#collapseExample"
+                        role="button"
+                        aria-expanded="false"
+                        aria-controls="collapseExample"
+                      >
+                        Read More...
+                      </a>
+                    </p>
                   </li>
                 </ul>
-                <p>
+                {/* <p>
                   <a
                     className="btn btn-primary"
                     data-toggle="collapse"
@@ -87,7 +114,7 @@ const JobList = ({ jobTitiles }) => {
                   >
                     Read More...
                   </a>
-                </p>
+                </p> */}
                 <div className="collapse" id="collapseExample">
                   <div className="card card-body">{job.description}</div>
                 </div>
