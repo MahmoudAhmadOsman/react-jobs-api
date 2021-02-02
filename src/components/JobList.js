@@ -40,9 +40,8 @@ const JobList = ({ jobTitiles }) => {
   return (
     <section className="job--lists">
       <div className="container">
-        <h1 className="text-info">
+        <h1 className="text-danger">
           {jobTitiles}
-
           <small
             className="text-muted float-right mt-4"
             style={{ fontSize: "12px" }}
@@ -52,7 +51,7 @@ const JobList = ({ jobTitiles }) => {
             with React js library & axios | By
             <a href="http://mahmoudosman.com/"> Mahmoud Osman</a>
           </small>
-        </h1>{" "}
+        </h1>
         <hr />
         <br />
         <div className="row">
