@@ -12,7 +12,6 @@ const JobList = ({ jobTitiles }) => {
   useEffect(() => {
     //Cancel muiltipe request going out at the sametime
     const cancelToken = axios.CancelToken.source();
-    //https://cors-anywhere.herokuapp.com/https://jobs.github.com/positions.json
     const baseURL =
       "https://cors-anywhere.herokuapp.com/https://jobs.github.com/positions.json";
 
@@ -108,7 +107,6 @@ const JobList = ({ jobTitiles }) => {
       )}
     </section>
   );
-  return { jobs, setJobs, isLoading, setisLoading };
 };
 
 export default JobList;
