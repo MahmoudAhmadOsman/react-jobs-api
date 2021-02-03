@@ -7,8 +7,6 @@ const Home = () => {
   const { data: jobs, isLoading, error } = useFetch(
     "https://cors-anywhere.herokuapp.com/https://jobs.github.com/positions.json"
   );
-
-  //   https://blogs-api.herokuapp.com/blogs
   //https://cors-anywhere.herokuapp.com/https://jobs.github.com/positions.json
 
   return (
@@ -17,7 +15,8 @@ const Home = () => {
         <div className="row">
           <div className="col-md-12">
             {jobs && <JobList />}
-            {/* {error && (
+
+            {error && (
               <div
                 className="alert alert-danger"
                 style={{ marginTop: "9rem", textAlign: "center" }}
@@ -27,7 +26,7 @@ const Home = () => {
                   {error}
                 </strong>
               </div>
-            )} */}
+            )}
           </div>
         </div>
       </div>

@@ -74,28 +74,27 @@ const JobList = () => {
                           Read More...
                         </Link>
                       </p> */}
-
-                      {/*  <p>
-                       <Link
+                      <p>
+                        <Link
                           to={`/jobs/${job.id}`}
                           className="text-info font-weight-bold"
                         >
                           Read More...
-                        </Link> */}
+                        </Link>
+                      </p>
                       {/* <p
                         onClick={() => setOpen((prevOpen) => !prevOpen)}
                         className="text-primary view--details"
                       >
                         {open ? "Hide Details" : "View Details"}
                       </p> */}
-                      {/* </p> */}
+
                       {/* <div className="collapse" in={open}>
                         <ReactMarkdown source={job.description} />
                       </div> */}
 
                       {/* Start of new div */}
-
-                      <a
+                      {/* <a
                         onClick={showDetails}
                         href="#demo"
                         class="text-info font-weight-bold"
@@ -105,7 +104,7 @@ const JobList = () => {
                       </a>
                       <div id="demo" class="collapse" in={open}>
                         <ReactMarkdown source={job.description} />
-                      </div>
+                      </div>   */}
                       {/* end of new div */}
                     </li>
                   </ul>
@@ -113,18 +112,6 @@ const JobList = () => {
               ))}
             </div>
           </div>
-        </div>
-      )}
-
-      {error && (
-        <div
-          className="alert alert-danger"
-          style={{ marginTop: "9rem", textAlign: "center" }}
-        >
-          <strong>
-            <i className="fa fa-warning mr-1"></i>
-            {error}
-          </strong>
         </div>
       )}
     </section>

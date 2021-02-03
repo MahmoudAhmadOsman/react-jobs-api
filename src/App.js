@@ -3,7 +3,7 @@ import "./App.css";
 import Contact from "./components/Contact";
 import Home from "./components/Home";
 import JobList from "./components/JobList";
-// import JobsDetails from "./components/JobsDetails";
+import JobsDetails from "./components/JobsDetails";
 import Navbar from "./components/Navbar";
 
 function App() {
@@ -19,9 +19,9 @@ function App() {
             <Route exact path="/jobs-api">
               <JobList />
             </Route>
-            {/* <Route exact path="/jobs/:id">
+            <Route exact path="/jobs/:id">
               <JobsDetails />
-            </Route> */}
+            </Route>
 
             <Route exact path="/contact">
               <Contact />
