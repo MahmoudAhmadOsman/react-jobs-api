@@ -1,10 +1,9 @@
-import { useState, useEffect } from "react";
 import JobList from "./JobList";
 
 import useFetch from "./useFetch";
 
 const Home = () => {
-  const { data: jobs, isLoading, error } = useFetch(
+  const { data: jobs, error } = useFetch(
     "https://cors-anywhere.herokuapp.com/https://jobs.github.com/positions.json"
   );
   //https://cors-anywhere.herokuapp.com/https://jobs.github.com/positions.json
