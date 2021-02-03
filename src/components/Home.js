@@ -16,6 +16,7 @@ const Home = () => {
       <div className="container">
         <div className="row">
           <div className="col-md-12">
+            {jobs && <JobList />}
             {error && (
               <div
                 className="alert alert-danger"
@@ -29,8 +30,6 @@ const Home = () => {
             )}
           </div>
         </div>
-
-        {jobs && <JobList />}
       </div>
     </section>
   );
