@@ -108,7 +108,6 @@ const JobList = ({ jobTitiles }) => {
       )}
     </section>
   );
-  return { jobs, setJobs, isLoading, setisLoading };
 };
 
 export default JobList;
