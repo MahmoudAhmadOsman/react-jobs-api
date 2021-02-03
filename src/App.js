@@ -3,7 +3,7 @@ import "./App.css";
 import Contact from "./components/Contact";
 import Home from "./components/Home";
 import JobList from "./components/JobList";
-import JobsDetails from "./components/JobsDetails";
+// import JobsDetails from "./components/JobsDetails";
 import Navbar from "./components/Navbar";
 
 function App() {
