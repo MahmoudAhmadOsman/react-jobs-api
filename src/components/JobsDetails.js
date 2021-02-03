@@ -1,11 +1,10 @@
-// import { useState, useEffect } from "react";
 import { Link, useParams } from "react-router-dom";
 import Loading from "./Loading";
 import useFetch from "./useFetch";
 
 const JobsDetails = () => {
   const jobsDetailsTitle = "Job Details";
-  const { id, title } = useParams();
+  const { id } = useParams();
 
   const { data: job, error, isLoading } = useFetch(
     "https://cors-anywhere.herokuapp.com/https://jobs.github.com/positions.json" +

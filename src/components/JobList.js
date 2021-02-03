@@ -12,6 +12,12 @@ const JobList = () => {
     "https://cors-anywhere.herokuapp.com/https://jobs.github.com/positions.json"
   );
 
+  //Show and hide job description
+  const [open, setOpen] = useState(false);
+  const showDetails = () => {
+    setOpen((prevOpen) => !prevOpen);
+  };
+
   return (
     <section className="job--lists">
       {isLoading ? (
@@ -60,14 +66,47 @@ const JobList = () => {
                       <p>
                         <ReactMarkdown source={job.how_to_apply} />
                       </p>
-                      <p>
+                      {/* <p>
                         <Link
                           to={`/jobs/${job.id}`}
                           className="text-info font-weight-bold"
                         >
                           Read More...
                         </Link>
-                      </p>
+                      </p> */}
+
+                      {/*  <p>
+                       <Link
+                          to={`/jobs/${job.id}`}
+                          className="text-info font-weight-bold"
+                        >
+                          Read More...
+                        </Link> */}
+                      {/* <p
+                        onClick={() => setOpen((prevOpen) => !prevOpen)}
+                        className="text-primary view--details"
+                      >
+                        {open ? "Hide Details" : "View Details"}
+                      </p> */}
+                      {/* </p> */}
+                      {/* <div className="collapse" in={open}>
+                        <ReactMarkdown source={job.description} />
+                      </div> */}
+
+                      {/* Start of new div */}
+
+                      <a
+                        onClick={showDetails}
+                        href="#demo"
+                        class="text-info font-weight-bold"
+                        data-toggle="collapse"
+                      >
+                        {open ? "View Details" : "Hide Details"}
+                      </a>
+                      <div id="demo" class="collapse" in={open}>
+                        <ReactMarkdown source={job.description} />
+                      </div>
+                      {/* end of new div */}
                     </li>
                   </ul>
                 </div>

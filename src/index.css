@@ -17,10 +17,14 @@ code {
 /* job--lists */
 .job--lists {
   position: relative;
-   
+
 }
 
 .job--lists img {
   width: 20px;
   border-radius: 50px;
+}
+
+.job--lists .view--details{
+  cursor: pointer;
 }

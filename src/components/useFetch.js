@@ -11,7 +11,7 @@ const useFetch = (url) => {
   useEffect(
     () => {
       //Cancel muiltipe request going out at the sametime
-      const cancelToken = axios.CancelToken.source();
+      // const cancelToken = axios.CancelToken.source();
       //const baseURL ="https://cors-anywhere.herokuapp.com/https://jobs.github.com/positions.json";
 
       axios
@@ -30,13 +30,13 @@ const useFetch = (url) => {
           setError(null);
         })
         .catch((err) => {
-          if (axios.isCancel(err)) return;
+          //if (axios.isCancel(err)) return;
           setError(err.message);
         });
 
-      return () => {
-        cancelToken.cancel();
-      };
+      // return () => {
+      //   cancelToken.cancel();
+      // };
 
       // empty dependency array
     },

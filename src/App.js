@@ -19,9 +19,9 @@ function App() {
             <Route exact path="/jobs-api">
               <JobList />
             </Route>
-            <Route exact path="/jobs/:id">
+            {/* <Route exact path="/jobs/:id">
               <JobsDetails />
-            </Route>
+            </Route> */}
 
             <Route exact path="/contact">
               <Contact />
