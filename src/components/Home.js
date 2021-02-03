@@ -1,16 +1,37 @@
-// import { useState, useEffect } from "react";
+import { useState, useEffect } from "react";
 import JobList from "./JobList";
 
-const Home = () => {
-  //   const { jobs, setJobs } = useState([]);
+import useFetch from "./useFetch";
 
-  const jobTitiles = "Latest Jobs from Github API";
+const Home = () => {
+  const { data: jobs, isLoading, error } = useFetch(
+    "https://cors-anywhere.herokuapp.com/https://jobs.github.com/positions.json"
+  );
+
+  //   https://blogs-api.herokuapp.com/blogs
+  //https://cors-anywhere.herokuapp.com/https://jobs.github.com/positions.json
 
   return (
     <section className="home--container">
-      {/* {<JobList jobs={jobs} setJobs={setJobs} jobTitiles={jobTitiles} />} */}
+      <div className="container">
+        <div className="row">
+          <div className="col-md-12">
+            {error && (
+              <div
+                className="alert alert-danger"
+                style={{ marginTop: "9rem", textAlign: "center" }}
+              >
+                <strong>
+                  <i className="fa fa-warning mr-1"></i>
+                  {error}
+                </strong>
+              </div>
+            )}
+          </div>
+        </div>
 
-      {<JobList jobTitiles={jobTitiles} />}
+        {jobs && <JobList />}
+      </div>
     </section>
   );
 };
