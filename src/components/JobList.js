@@ -47,7 +47,7 @@ const JobList = ({ jobTitiles }) => {
             className="text-muted float-right mt-4"
             style={{ fontSize: "12px" }}
           >
-            # of Available Jobs &nbsp;
+            # of Available Github Jobs &nbsp;
             <span className="text-primary">{jobs.length}</span> &nbsp; | Built
             with React js library & axios | By
             <Link to="http://mahmoudosman.com/"> Mahmoud Osman</Link>
