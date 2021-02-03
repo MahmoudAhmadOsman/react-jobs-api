@@ -115,6 +115,18 @@ const JobList = () => {
           </div>
         </div>
       )}
+
+      {error && (
+        <div
+          className="alert alert-danger"
+          style={{ marginTop: "9rem", textAlign: "center" }}
+        >
+          <strong>
+            <i className="fa fa-warning mr-1"></i>
+            {error}
+          </strong>
+        </div>
+      )}
     </section>
   );
 };

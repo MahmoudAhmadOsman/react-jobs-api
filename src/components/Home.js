@@ -17,7 +17,7 @@ const Home = () => {
         <div className="row">
           <div className="col-md-12">
             {jobs && <JobList />}
-            {error && (
+            {/* {error && (
               <div
                 className="alert alert-danger"
                 style={{ marginTop: "9rem", textAlign: "center" }}
@@ -27,7 +27,7 @@ const Home = () => {
                   {error}
                 </strong>
               </div>
-            )}
+            )} */}
           </div>
         </div>
       </div>
