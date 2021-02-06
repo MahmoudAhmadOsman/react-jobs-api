@@ -2,6 +2,6 @@
 
 This project was built with Reactjs, Axios, HTML5, CSS3, Bootstrap 4.
 
-See the demo link here: [github-jobs-api](https://react-jobs-api-git-master.mahmoudahmadosman.vercel.app/)
+LinkedIN [My linkedIn](https://www.linkedin.com/in/mahmoudaosman/)
 
  
