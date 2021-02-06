@@ -82,16 +82,16 @@ const JobList = () => {
                           Read More...
                         </Link>
                       </p>
-                      {/* <p
+                      <p
                         onClick={() => setOpen((prevOpen) => !prevOpen)}
                         className="text-primary view--details"
                       >
                         {open ? "Hide Details" : "View Details"}
-                      </p> */}
+                      </p>
 
-                      {/* <div className="collapse" in={open}>
+                      <div className="collapse" in={open}>
                         <ReactMarkdown source={job.description} />
-                      </div> */}
+                      </div>
 
                       {/* Start of new div */}
                       {/* <a
